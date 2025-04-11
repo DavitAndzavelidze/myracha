@@ -60,7 +60,7 @@ const Rooms = () => {
         setRoomTypeFilter={setRoomTypeFilter}
         setSearchQuery={setSearchQuery}
       />
-      <div className="flex mt-20 justify-between gap-4 flex-wrap">
+      <div className="flex-1 flex mt-20 gap-4 sm:gap-6 flex-wrap">
         {filteredRooms.map((room) => (
           <RoomCard key={room._id} room={room} />
         ))}

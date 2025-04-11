@@ -38,7 +38,6 @@ const RoomCard: FC<Props> = (props) => {
         <div className="pt-3 pb-6 h-[3.5rem] overflow-hidden relative">
           <p className="pt-3 pb-6 absolute inset-0 truncate">{description}</p>
         </div>
-        {/* <p className="pt-3 pb-6">{description.slice(1, 100)}...</p> */}
 
         <Link
           href={`/rooms/${slug.current}`}

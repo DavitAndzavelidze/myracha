@@ -3,7 +3,7 @@ import Image from "next/image";
 export const heading1 = (
   <>
     <h1 className="font-heading mb-6 py-2">მოგზაურობა და დასვენება რაჭაში</h1>
-    <p className="text-[#4a4a4a] dark:text-[#ffffffea] mb-12 max-w-lg">
+    <p className="text-[#4a4a4a] text-lg md:text-xl dark:text-[#ffffffea] mb-12 max-w-xl">
       რაჭა — საქართველოს ერთ-ერთი ყველაზე მომხიბვლელი და მრავალფეროვანი
       რეგიონია, მოგზაურობა რაჭაში გახდება თქვენი შეუვიწყარი შთაბეჭდილებების
       წყარო!
@@ -21,6 +21,7 @@ export const section2 = (
         width={600}
         height={600}
         className="img scale-animation"
+        priority
       />
     </div>
     <div className="grid grid-cols-2 gap-8 h-48">
@@ -31,6 +32,7 @@ export const section2 = (
           width={300}
           height={300}
           className="img scale-animation"
+          priority
         />
       </div>
       <div className="rounded-2xl overflow-hidden">
@@ -40,6 +42,7 @@ export const section2 = (
           width={300}
           height={300}
           className="img scale-animation"
+          priority
         />
       </div>
     </div>

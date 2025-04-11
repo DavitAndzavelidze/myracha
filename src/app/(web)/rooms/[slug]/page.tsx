@@ -47,11 +47,11 @@ const RoomDetails = (props: { params: Promise<{ slug: string }> }) => {
                 ))}
               </div>
               <div className="mb-11">
-                <h2 className="font-bold text-3xl mb-2">Description</h2>
+                <h2 className="font-bold text-3xl mb-4">დეტალურად</h2>
                 <p>{room.description}</p>
               </div>
               <div className="mb-11">
-                <h2 className="font-bold text-3xl mb-2">Offered Amenities</h2>
+                <h2 className="font-bold text-3xl mb-4">ბენეფიტები</h2>
                 <div className="grid grid-cols-2">
                   {room.offeredAmenities.map((amenity) => (
                     <div

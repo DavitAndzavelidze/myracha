@@ -26,13 +26,6 @@ const BookRoomCta: FC<Props> = (props) => {
           ""
         )}
       </h3>
-
-      {/* <button
-        disabled={isBooked}
-        className="btn-primary w-full mt-6 disabled:bg-gray-500 disabled:cursor-not-allowed"
-      >
-        {isBooked ? "Booked" : "Book Now"}
-      </button> */}
     </div>
   );
 };
