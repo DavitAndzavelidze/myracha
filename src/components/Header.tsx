@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useContext, useState } from "react";
 import { FaUserCircle, FaBars, FaTimes } from "react-icons/fa";
 import { MdDarkMode, MdOutlineLightMode } from "react-icons/md";
@@ -9,6 +10,7 @@ import { useSession } from "next-auth/react";
 import Image from "next/image";
 
 const Header = () => {
+  const pathname = usePathname();
   const { darkTheme, setDarkTheme } = useContext(ThemeContext);
   const { data: session } = useSession();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -51,7 +53,15 @@ const Header = () => {
               <li key={link.href}>
                 <Link
                   href={link.href}
-                  className={` px-3 py-2 text-xl hover:bg-tertiary-light duration-300 transition-all p-2 rounded-xl`}
+                  className={`px-3 py-2 text-xl transition-colors duration-200 border-b-2 ${
+                    pathname === link.href
+                      ? darkTheme
+                        ? "border-primary text-white"
+                        : "border-primary text-black"
+                      : darkTheme
+                        ? "border-transparent text-white/35 hover:text-white/80"
+                        : "border-transparent text-gray-500 hover:text-gray-900"
+                  }`}
                 >
                   {link.label}
                 </Link>
