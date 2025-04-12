@@ -30,17 +30,17 @@ const Search: FC<Props> = ({
   };
 
   return (
-    <section className="bg-tertiary-light px-4 py-6 rounded-lg">
+    <section className="bg-primary text-white dark:bg-[#026057] dark:text-white px-4 py-6 rounded-lg">
       <div className="container mx-auto flex gap-4 flex-wrap justify-between items-center">
         <div className="w-full md:1/3 lg:w-auto mb-4 md:mb-0">
-          <label className="block text-sm font-medium mb-2 text-black">
+          <label className="block text-sm font-medium mb-2 ">
             სასტუმროს ტიპი
           </label>
           <div className="relative">
             <select
               value={roomTypeFilter}
               onChange={handleRoomTypeChange}
-              className="w-full px-4 py-2 capitalize rounded leading-tight dark:bg-black focus:outline-none"
+              className="w-full px-4 py-2 capitalize rounded leading-tight focus:outline-none text-black"
             >
               <option value="">ყველა</option>
               <option value="სასტუმრო">სასტუმრო</option>
@@ -50,20 +50,18 @@ const Search: FC<Props> = ({
           </div>
         </div>
         <div className="w-full md:1/3 lg:w-auto mb-4 md:mb-0">
-          <label className="block text-sm font-medium mb-2 text-black">
-            მოძებნე
-          </label>
+          <label className="block text-sm font-medium mb-2 ">მოძებნე</label>
           <input
             type="search"
             id="search"
             placeholder="სასტუმრო..."
-            className="w-full px-4 py-3 rounded leading-tight dark:bg-black focus:outline-none placeholder:text-black dark:placeholder:text-white"
+            className="w-full px-4 py-3 rounded leading-tight focus:outline-none placeholder:text-black "
             value={searchQuery}
             onChange={handleSearchQueryChange}
           />
         </div>
         <button
-          className="btn-primary"
+          className="btn-primary dark:bg-primary dark:shadow-md"
           type="button"
           onClick={handleFilterClick}
         >
