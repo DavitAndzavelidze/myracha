@@ -27,11 +27,17 @@ const Header = () => {
     { href: "/contact", label: "კონტაქტი" },
   ];
 
+  // Helper function to determine active link
+  const isLinkActive = (href: string) => {
+    if (href === "/") return pathname === href;
+    return pathname.startsWith(href);
+  };
+
   return (
     <header
-      className={`py-10 px-4 sm:px-6 lg:px-8  ${darkTheme ? "bg-gray-900" : "bg-white"}`}
+      className={`py-6 md:py-10 px-4 sm:px-6 lg:px-8 ${darkTheme ? "bg-gray-900" : "bg-white"} shadow-md`}
     >
-      <div className="container mx-auto flex justify-between items-center ">
+      <div className="container mx-auto flex justify-between items-center">
         {/* Logo */}
         <div className="flex items-center">
           <Link href="/" className="flex items-center" aria-label="Home">
@@ -49,24 +55,28 @@ const Header = () => {
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-8">
           <ul className="flex space-x-6">
-            {navLinks.map((link) => (
-              <li key={link.href}>
-                <Link
-                  href={link.href}
-                  className={`px-3 py-2 text-xl transition-colors duration-200 border-b-2 ${
-                    pathname === link.href
-                      ? darkTheme
-                        ? "border-primary text-white"
-                        : "border-primary text-black"
-                      : darkTheme
-                        ? "border-transparent text-white/35 hover:text-white/80"
-                        : "border-transparent text-gray-500 hover:text-gray-900"
-                  }`}
-                >
-                  {link.label}
-                </Link>
-              </li>
-            ))}
+            {navLinks.map((link) => {
+              const isActive = isLinkActive(link.href);
+              return (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className={`px-3 py-2 text-xl transition-colors duration-200 border-b-2 ${
+                      isActive
+                        ? darkTheme
+                          ? "border-primary text-white"
+                          : "border-primary text-black"
+                        : darkTheme
+                          ? "border-transparent text-white/35 hover:text-white/80"
+                          : "border-transparent text-gray-500 hover:text-gray-900"
+                    }`}
+                    aria-current={isActive ? "page" : undefined}
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
         </nav>
 
@@ -77,7 +87,11 @@ const Header = () => {
             aria-label={
               darkTheme ? "Switch to light mode" : "Switch to dark mode"
             }
-            className={`p-2 rounded-full ${darkTheme ? "text-yellow-300 hover:bg-gray-800" : "text-gray-700 hover:bg-gray-200"} transition-colors duration-300`}
+            className={`p-2 rounded-full ${
+              darkTheme
+                ? "text-yellow-300 hover:bg-gray-800"
+                : "text-gray-700 hover:bg-gray-200"
+            } transition-colors duration-300`}
           >
             {darkTheme ? (
               <MdOutlineLightMode size={24} />
@@ -103,14 +117,18 @@ const Header = () => {
                 </div>
               ) : (
                 <FaUserCircle
-                  className={`text-3xl ${darkTheme ? "text-gray-300" : "text-gray-600"} hover:text-blue-500 transition-colors duration-300`}
+                  className={`text-3xl ${
+                    darkTheme ? "text-gray-300" : "text-gray-600"
+                  } hover:text-blue-500 transition-colors duration-300`}
                 />
               )}
             </Link>
           ) : (
             <Link href="/auth" className="flex items-center">
               <FaUserCircle
-                className={`text-3xl ${darkTheme ? "text-gray-300" : "text-gray-600"} hover:text-blue-500 transition-colors duration-300`}
+                className={`text-3xl ${
+                  darkTheme ? "text-gray-300" : "text-gray-600"
+                } hover:text-blue-500 transition-colors duration-300`}
               />
             </Link>
           )}

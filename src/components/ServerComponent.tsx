@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export const heading1 = (
   <>
-    <h1 className="font-heading mb-6 py-1 md:py-2">
+    <h1 className="font-heading mb-6 py-4 md:py-2">
       მოგზაურობა და დასვენება რაჭაში
     </h1>
     <p className="text-[#4a4a4a] text-lg md:text-xl dark:text-[#ffffffea] mb-12 max-w-xl">

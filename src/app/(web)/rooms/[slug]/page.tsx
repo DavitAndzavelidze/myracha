@@ -24,7 +24,7 @@ const RoomDetails = (props: { params: Promise<{ slug: string }> }) => {
   if (!room) return <LoadingSpinner />;
 
   return (
-    <div>
+    <div className="py-6">
       <HotelPhotoGallery photos={room.images} />
       <div className="container mx-auto mt-20">
         <div className="md:grid md:grid-cols-12 gap-10 px-3">
@@ -91,14 +91,14 @@ const RoomDetails = (props: { params: Promise<{ slug: string }> }) => {
                   </div>
                 </div>
               </div>
-              <div className="shadow dark:shadow-white rounded-lg p-6">
+              {/* <div className="shadow dark:shadow-white rounded-lg p-6">
                 <div className="items-center mb-4">
                   <p className="md:text-lg font-semibold">Customer Reviews</p>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  {/* <RoomReview roomId={room._id} /> */}
+                  <RoomReview roomId={room._id} />
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
           <div className="md:col-span-4 rounded ring ring-blue-500/50 dark:shadow dark:shadow-white sticky top-10 h-fit overflow-auto">

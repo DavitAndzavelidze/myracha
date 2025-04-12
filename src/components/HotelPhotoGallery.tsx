@@ -126,7 +126,7 @@ const HotelPhotoGallery: FC<{ photos: ImageType[] }> = ({ photos }) => {
                 </span>
               </div>
               <button
-                className="absolute top-2 right-2 text-white text-lg"
+                className="absolute top-0 right-0 translate-x-8 -translate-y-6 text-white text-lg"
                 onClick={closeModal}
               >
                 <MdCancel className="font-medium text-2xl text-white" />
