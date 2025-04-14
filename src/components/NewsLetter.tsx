@@ -16,7 +16,7 @@ const NewsLetter = () => {
             className="placeholder:text-gray-800 h-11 md:h-16 mb-2 md:mb-0 rounded-xl pl-6 md:mr-5 md:w-[452px] focus:outline-none"
           />
           <button type="button" className="btn-primary shadow-md">
-            Subscribe
+            გამოწერა
           </button>
         </div>
       </form>
