@@ -61,7 +61,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <div className="bg-green-500/50  dark:bg-gray-900 dark:text-gray-100 h-10 md:h-[40px] mt-16 w-full bottom-0 left-0 flex justify-center items-center text-sm text-gray-800">
+      <div className="bg-green-500/50  dark:bg-gray-900 dark:text-gray-100 h-10 md:h-[40px] mt-16 w-full bottom-0 left-0 flex justify-center items-center text-[10px] md:text-sm text-gray-800">
         <p>Copyright &#169; 2025 myracha.ge. All rights reserved.</p>
       </div>
     </footer>

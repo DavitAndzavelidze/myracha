@@ -31,6 +31,7 @@ export default function RootLayout({
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
           crossOrigin="anonymous"
         />
+        <link rel="icon" href="/favicon.ico?v=2" />
       </head>
       <body className={poppins.className}>
         <NextAuthProvider>
