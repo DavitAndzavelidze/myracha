@@ -5,9 +5,9 @@ import useSWR from "swr";
 import LoadingSpinner from "../../loading";
 import HotelPhotoGallery from "@/components/HotelPhotoGallery";
 import React from "react";
-import { MdOutlineCleaningServices } from "react-icons/md";
-import { LiaFireExtinguisherSolid } from "react-icons/lia";
-import { GiSmokeBomb } from "react-icons/gi";
+import { GiTowel, GiWashingMachine } from "react-icons/gi";
+import { LuHeater } from "react-icons/lu";
+import { PiTowel, PiHairDryer } from "react-icons/pi";
 import BookRoomCta from "@/components/BookRoomCta";
 
 const RoomDetails = (props: { params: Promise<{ slug: string }> }) => {
@@ -45,11 +45,11 @@ const RoomDetails = (props: { params: Promise<{ slug: string }> }) => {
                 ))}
               </div>
               <div className="mb-11">
-                <h2 className="font-bold text-3xl mb-4">დეტალურად</h2>
+                <h2 className="font-bold text-3xl mb-4">აღწერა</h2>
                 <p>{room.description}</p>
               </div>
               <div className="mb-11">
-                <h2 className="font-bold text-3xl mb-4">ბენეფიტები</h2>
+                <h2 className="font-bold text-3xl mb-4">სერვისები</h2>
                 <div className="grid grid-cols-2">
                   {room.offeredAmenities.map((amenity) => (
                     <div
@@ -65,25 +65,29 @@ const RoomDetails = (props: { params: Promise<{ slug: string }> }) => {
                 </div>
               </div>
               <div className="mb-11">
-                <h2 className="font-bold text-3xl mb-2">
-                  უსაფრთხოება და ჰიგიენა
-                </h2>
+                <h2 className="font-bold text-3xl mb-2">დამატებით</h2>
                 <div className="grid grid-cols-2">
                   <div className="flex items-center my-1 md:my-0">
-                    <MdOutlineCleaningServices />
+                    <PiTowel />
+                    <p className="ml-2 md:text-base text-xs">თეთრეული</p>
+                  </div>
+                  <div className="flex items-center my-1 md:my-0">
+                    <GiTowel />
+                    <p className="ml-2 md:text-base text-xs">პირსახოცი</p>
+                  </div>
+                  <div className="flex items-center my-1 md:my-0">
+                    <GiWashingMachine />
                     <p className="ml-2 md:text-base text-xs">
-                      ოთახის ყოველდღიური დასუფთავება
+                      სარეცხის მანქანა
                     </p>
                   </div>
                   <div className="flex items-center my-1 md:my-0">
-                    <LiaFireExtinguisherSolid />
-                    <p className="ml-2 md:text-base text-xs">ცეცხლმაქრი</p>
+                    <PiHairDryer />
+                    <p className="ml-2 md:text-base text-xs">თმის საშრობი</p>
                   </div>
                   <div className="flex items-center my-1 md:my-0">
-                    <GiSmokeBomb />
-                    <p className="ml-2 md:text-base text-xs">
-                      კვამლის დეტექტორი
-                    </p>
+                    <LuHeater />
+                    <p className="ml-2 md:text-base text-xs">გათბობა</p>
                   </div>
                 </div>
               </div>

@@ -3,16 +3,14 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useContext, useState } from "react";
-import { FaUserCircle, FaBars, FaTimes } from "react-icons/fa";
+import { FaBars, FaTimes } from "react-icons/fa";
 import { MdDarkMode, MdOutlineLightMode } from "react-icons/md";
 import ThemeContext from "@/context/themeContext";
-import { useSession } from "next-auth/react";
 import Image from "next/image";
 
 const Header = () => {
   const pathname = usePathname();
   const { darkTheme, setDarkTheme } = useContext(ThemeContext);
-  const { data: session } = useSession();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleTheme = () => {
@@ -35,7 +33,7 @@ const Header = () => {
 
   return (
     <header
-      className={`py-6 md:py-10 px-4 sm:px-6 lg:px-8 ${darkTheme ? "bg-gray-900" : "bg-white"} shadow-md`}
+      className={`py-6 md:py-10 px-4 sm:px-6 lg:px-8 ${darkTheme ? "dark-bg" : "light-bg"} shadow-md`}
     >
       <div className="container mx-auto flex justify-between items-center">
         {/* Logo */}
@@ -99,39 +97,6 @@ const Header = () => {
               <MdDarkMode size={24} />
             )}
           </button>
-
-          {session?.user ? (
-            <Link
-              href={`/users/${session.user.id}`}
-              className="flex items-center"
-            >
-              {session.user.image ? (
-                <div className="w-10 h-10 rounded-full overflow-hidden border-2 border-transparent hover:border-blue-500 transition-all duration-300">
-                  <Image
-                    src={session.user.image}
-                    alt={session.user.name || "User profile"}
-                    width={40}
-                    height={40}
-                    className="object-cover w-full h-full"
-                  />
-                </div>
-              ) : (
-                <FaUserCircle
-                  className={`text-3xl ${
-                    darkTheme ? "text-gray-300" : "text-gray-600"
-                  } hover:text-blue-500 transition-colors duration-300`}
-                />
-              )}
-            </Link>
-          ) : (
-            <Link href="/auth" className="flex items-center">
-              <FaUserCircle
-                className={`text-3xl ${
-                  darkTheme ? "text-gray-300" : "text-gray-600"
-                } hover:text-blue-500 transition-colors duration-300`}
-              />
-            </Link>
-          )}
 
           {/* Mobile menu button */}
           <button

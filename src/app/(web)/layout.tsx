@@ -4,7 +4,6 @@ import Header from "@/components/Header";
 import "./globals.css";
 import Footer from "@/components/Footer";
 import ThemeProvider from "@/components/ThemeProvider";
-import { NextAuthProvider } from "@/components/AuthProvider";
 import Toast from "@/components/Toast";
 
 const poppins = Poppins({
@@ -34,16 +33,14 @@ export default function RootLayout({
         <link rel="icon" href="/favicon.ico?v=2" />
       </head>
       <body className={poppins.className}>
-        <NextAuthProvider>
-          <ThemeProvider>
-            <Toast />
-            <main className="font-normal">
-              <Header />
-              {children}
-              <Footer />
-            </main>
-          </ThemeProvider>
-        </NextAuthProvider>
+        <ThemeProvider>
+          <Toast />
+          <main className="font-normal">
+            <Header />
+            {children}
+            <Footer />
+          </main>
+        </ThemeProvider>
       </body>
     </html>
   );

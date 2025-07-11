@@ -19,7 +19,7 @@ const Rooms = () => {
 
     if (roomType) setRoomTypeFilter(roomType);
     if (searchQuery) setSearchQuery(searchQuery);
-  }, []);
+  }, [searchParams]); // Added searchParams to dependency array
 
   async function fetchData() {
     return getRooms();

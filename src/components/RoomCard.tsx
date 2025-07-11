@@ -12,7 +12,7 @@ const RoomCard: FC<Props> = (props) => {
     room: { coverImage, name, price, type, description, slug },
   } = props;
   return (
-    <div className="rounded-xl w-72 mb-10 mt-10 mx-auto md:mx-0 overflow-hidden text-black">
+    <div className="rounded-xl w-72 mb-10 mt-10 mx-auto md:mx-0 overflow-hidden text-black dark:text-white">
       <div className="h-60 overflow-hidden">
         {coverImage?.asset.url ? (
           <Image
@@ -29,19 +29,19 @@ const RoomCard: FC<Props> = (props) => {
         )}
       </div>
 
-      <div className="p-4 bg-white">
+      <div className="p-4 dark:bg-[#0A1A2F]">
         <div className="flex justify-between text-xl font-semibold">
-          <p>{name}</p>
+          <p className="truncate max-w-[60%]">{name}</p>
           <p>₾{price}</p>
         </div>
         <p className="pt-2 text-xs">{type}</p>
-        <div className="pt-3 pb-6 h-[3.5rem] overflow-hidden relative">
-          <p className="pt-3 pb-6 absolute inset-0 truncate">{description}</p>
+        <div className="pt-3 pb-6 min-h-[3.5rem]">
+          <p className="line-clamp-2 text-sm">{description}</p>
         </div>
 
         <Link
           href={`/rooms/${slug.current}`}
-          className="bg-primary inline-block text-center w-full py-4 rounded-xl text-white text-xl font-bold hover:bg-primary/90 transition-all duration-300"
+          className="btn-primary dark:bg-primary inline-block text-center w-full py-4 rounded-xl text-white text-xl font-bold"
         >
           დეტალურად
         </Link>
