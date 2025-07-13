@@ -5,10 +5,8 @@ import useSWR from "swr";
 import LoadingSpinner from "../../loading";
 import HotelPhotoGallery from "@/components/HotelPhotoGallery";
 import React from "react";
-import { GiTowel, GiWashingMachine } from "react-icons/gi";
-import { LuHeater } from "react-icons/lu";
-import { PiTowel, PiHairDryer } from "react-icons/pi";
 import BookRoomCta from "@/components/BookRoomCta";
+import Icon from "@/components/Icon";
 
 const RoomDetails = (props: { params: Promise<{ slug: string }> }) => {
   const params = React.use(props.params);
@@ -20,6 +18,15 @@ const RoomDetails = (props: { params: Promise<{ slug: string }> }) => {
   if (typeof room === "undefined" && !isLoading)
     throw new Error("Cannot fetch data");
   if (!room) return <LoadingSpinner />;
+
+  // Define static amenities with specific icons
+  const staticAmenities = [
+    { name: "თეთრეული", icon: "gi-towel" },
+    { name: "პირსახოცი", icon: "gi-towel" },
+    { name: "სარეცხის მანქანა", icon: "gi-washing-machine" },
+    { name: "თმის საშრობი", icon: "pi-hair-dryer" },
+    { name: "გათბობა", icon: "lu-heater" },
+  ];
 
   return (
     <div className="py-6">
@@ -35,9 +42,12 @@ const RoomDetails = (props: { params: Promise<{ slug: string }> }) => {
                 {room.offeredAmenities.map((amenity) => (
                   <div
                     key={amenity._key}
-                    className=" bg-[#eff0f2] md:py-4 md:rounded-lg dark:bg-gray-800 p-1 rounded-sm text-xs text-center"
+                    className="bg-[#eff0f2] md:py-4 md:rounded-lg dark:bg-gray-800 p-1 rounded-sm text-xs text-center"
                   >
-                    <i className={`fa-solid ${amenity.icon} md:text-2xl`}></i>
+                    <Icon
+                      name={amenity.icon ? amenity.icon : `${amenity.icon}`}
+                      className="md:text-2xl mx-auto"
+                    />
                     <p className="text-xs md:text-base pt-3">
                       {amenity.amenity}
                     </p>
@@ -56,7 +66,10 @@ const RoomDetails = (props: { params: Promise<{ slug: string }> }) => {
                       key={amenity._key}
                       className="flex items-center md:my-0 my-1"
                     >
-                      <i className={`fa-solid ${amenity.icon}`}></i>
+                      <Icon
+                        name={amenity.icon ? amenity.icon : `${amenity.icon}`}
+                        className="text-base"
+                      />
                       <p className="text-xs md:text-base ml-2">
                         {amenity.amenity}
                       </p>
@@ -67,28 +80,14 @@ const RoomDetails = (props: { params: Promise<{ slug: string }> }) => {
               <div className="mb-11">
                 <h2 className="font-bold text-3xl mb-2">დამატებით</h2>
                 <div className="grid grid-cols-2">
-                  <div className="flex items-center my-1 md:my-0">
-                    <PiTowel />
-                    <p className="ml-2 md:text-base text-xs">თეთრეული</p>
-                  </div>
-                  <div className="flex items-center my-1 md:my-0">
-                    <GiTowel />
-                    <p className="ml-2 md:text-base text-xs">პირსახოცი</p>
-                  </div>
-                  <div className="flex items-center my-1 md:my-0">
-                    <GiWashingMachine />
-                    <p className="ml-2 md:text-base text-xs">
-                      სარეცხის მანქანა
-                    </p>
-                  </div>
-                  <div className="flex items-center my-1 md:my-0">
-                    <PiHairDryer />
-                    <p className="ml-2 md:text-base text-xs">თმის საშრობი</p>
-                  </div>
-                  <div className="flex items-center my-1 md:my-0">
-                    <LuHeater />
-                    <p className="ml-2 md:text-base text-xs">გათბობა</p>
-                  </div>
+                  {staticAmenities.map((amenity, index) => (
+                    <div key={index} className="flex items-center my-1 md:my-0">
+                      <Icon name={amenity.icon} className="text-base" />
+                      <p className="ml-2 md:text-base text-xs">
+                        {amenity.name}
+                      </p>
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
