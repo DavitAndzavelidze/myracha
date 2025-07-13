@@ -4,6 +4,7 @@ import * as GiIcons from "react-icons/gi";
 import * as LuIcons from "react-icons/lu";
 import * as PiIcons from "react-icons/pi";
 import * as TbIcons from "react-icons/tb";
+import * as MdIcons from "react-icons/md";
 import { IconType } from "react-icons";
 
 interface IconProps {
@@ -39,7 +40,7 @@ export default function Icon({ name, className }: IconProps) {
     const firstPart = parts[0].toLowerCase();
 
     // Check if the first part is a valid icon library prefix
-    if (["fa", "gi", "lu", "pi", "tb"].includes(firstPart)) {
+    if (["fa", "gi", "lu", "pi", "tb", "md"].includes(firstPart)) {
       prefix = firstPart;
       iconName = parts.slice(1).join("-"); // Join remaining parts with hyphens
     } else {
@@ -50,7 +51,7 @@ export default function Icon({ name, className }: IconProps) {
   } else {
     // Handle camelCase names (like "giAbacus")
     const match = name.match(/^([a-z]{2})(.+)$/);
-    if (match && ["fa", "gi", "lu", "pi", "tb"].includes(match[1])) {
+    if (match && ["fa", "gi", "lu", "pi", "tb", "md"].includes(match[1])) {
       prefix = match[1];
       iconName = match[2];
     } else {
@@ -135,6 +136,17 @@ export default function Icon({ name, className }: IconProps) {
             `Available TB icons starting with "Tb${pascalIconName.slice(0, 3)}":`,
             Object.keys(TbIcons).filter((key) =>
               key.startsWith(`Tb${pascalIconName.slice(0, 3)}`)
+            )
+          );
+        }
+        break;
+      case "md":
+        IconComponent = MdIcons[expectedComponentName as keyof typeof MdIcons];
+        if (!IconComponent) {
+          console.log(
+            `Available MD icons starting with "Md${pascalIconName.slice(0, 3)}":`,
+            Object.keys(MdIcons).filter((key) =>
+              key.startsWith(`Md${pascalIconName.slice(0, 3)}`)
             )
           );
         }
