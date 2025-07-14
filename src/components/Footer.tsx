@@ -37,9 +37,7 @@ const Footer = () => {
             </div>
           </div>
           <div className="flex-1">
-            <p className="border-b-2 border-green-500 py-2">
-              სოციალური ქსელები
-            </p>
+            <p className="border-b-2 border-green-500 py-2">სოც. ქსელები</p>
             <div className="flex items-center py-4">
               <FaFacebook />
               <Link
