@@ -2,6 +2,7 @@ import { Room } from "@/models/room";
 import Image from "next/image";
 import Link from "next/link";
 import { FC } from "react";
+import BookRoomCta from "./BookRoomCta";
 
 type Props = {
   room: Room;
@@ -9,7 +10,7 @@ type Props = {
 
 const RoomCard: FC<Props> = (props) => {
   const {
-    room: { coverImage, name, price, type, description, slug },
+    room: { coverImage, name, price, type, description, discount, slug },
   } = props;
   return (
     <div className="rounded-xl w-72 mb-10 mt-10 mx-auto md:mx-0 overflow-hidden text-black dark:text-white">
@@ -31,8 +32,8 @@ const RoomCard: FC<Props> = (props) => {
 
       <div className="p-4 dark:bg-[#0A1A2F]">
         <div className="flex justify-between text-xl font-semibold">
-          <p className="truncate max-w-[60%]">{name}</p>
-          <p>₾{price}</p>
+          <p className="truncate max-w-[50%]">{name}</p>
+          <BookRoomCta discount={discount} price={price} />
         </div>
         <p className="pt-2 text-xs">{type}</p>
         <div className="pt-3 pb-6 min-h-[3.5rem]">

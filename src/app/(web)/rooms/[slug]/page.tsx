@@ -92,7 +92,7 @@ const RoomDetails = (props: { params: Promise<{ slug: string }> }) => {
               </div>
             </div>
           </div>
-          <div className="md:col-span-4 rounded ring ring-blue-500/50 dark:shadow dark:shadow-white sticky top-10 h-fit overflow-auto">
+          <div className="md:col-span-4 rounded ring ring-blue-500/50 dark:shadow dark:shadow-white sticky top-10 h-fit overflow-auto p-6">
             <BookRoomCta discount={room.discount} price={room.price} />
           </div>
         </div>
