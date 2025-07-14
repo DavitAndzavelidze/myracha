@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export const heading1 = (
   <>
@@ -10,7 +11,9 @@ export const heading1 = (
       რეგიონი, მოგზაურობა რაჭაში გახდება თქვენი დაუვიწყარი შთაბეჭდილებების
       წყარო!
     </p>
-    <button className="btn-primary">დაწყება</button>
+    <Link href="/rooms">
+      <button className="btn-primary">დაწყება</button>
+    </Link>
   </>
 );
 

@@ -230,16 +230,16 @@ export default function ContactForm() {
               </p>
               <div className="flex flex-col md:flex-row items-center justify-center gap-1 md:space-x-6 mt-4">
                 <Link
-                  href="mailto:info@example.com"
+                  href="mailto:info.myracha@gmail.com"
                   className="text-green-700 hover:text-green-600 transition-colors duration-200"
                 >
-                  info@example.com
+                  info.myracha@gmail.com
                 </Link>
                 <Link
                   href="tel:+995555123456"
                   className="text-green-700 hover:text-green-600 transition-colors duration-200"
                 >
-                  +995 000 00 00 00
+                  +000 000 00 00 00
                 </Link>
               </div>
             </div>

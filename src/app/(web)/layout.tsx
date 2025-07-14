@@ -14,7 +14,8 @@ const poppins = Poppins({
 
 export const metadata: Metadata = {
   title: "Myracha",
-  description: "Discover the best hotels in Racha",
+  description:
+    "მოგზაურობა და დასვენება რაჭაში! რაჭა არის საქართველოს ერთ-ერთი ყველაზე მომხიბვლელი და მრავალფეროვანი რეგიონი, მოგზაურობა რაჭაში გახდება თქვენი დაუვიწყარი შთაბეჭდილებების წყარო! Discover the best hotels in Racha",
 };
 
 export default function RootLayout({

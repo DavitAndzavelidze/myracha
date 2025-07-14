@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { BiMessageDetail } from "react-icons/bi";
 import { BsFillSendFill, BsTelephoneOutbound } from "react-icons/bs";
+import { MdEmail } from "react-icons/md";
 import {
   FaHome,
   FaHotel,
@@ -18,45 +19,75 @@ const Footer = () => {
             <p className="border-b-2 border-green-500 py-2">ნავიგაცია</p>
             <div className="flex items-center py-4">
               <FaHome />
-              <p className="ml-2 cursor-pointer">მთავარი</p>
+              <Link href="/">
+                <p className="ml-2 cursor-pointer">მთავარი</p>
+              </Link>
             </div>
             <div className="flex items-center">
               <FaHotel />
-              <p className="ml-2 cursor-pointer">სასტუმროები</p>
+              <Link href="/rooms">
+                <p className="ml-2 cursor-pointer">სასტუმროები</p>
+              </Link>
             </div>
             <div className="flex items-center pt-4">
               <BiMessageDetail />
-              <p className="ml-2 cursor-pointer">კონტაქტი</p>
+              <Link href="/contact">
+                <p className="ml-2 cursor-pointer">კონტაქტი</p>
+              </Link>
             </div>
           </div>
           <div className="flex-1">
-            <p className="border-b-2 border-green-500 py-2">გამოგვყევი</p>
+            <p className="border-b-2 border-green-500 py-2">
+              სოციალური ქსელები
+            </p>
             <div className="flex items-center py-4">
               <FaFacebook />
-              <p className="ml-2 cursor-pointer">Facebook</p>
+              <Link
+                href={"https://www.facebook.com/IMOGZAURE.MYRACHA.GE"}
+                target="_blank"
+              >
+                <p className="ml-2 cursor-pointer">Facebook</p>
+              </Link>
             </div>
             <div className="flex items-center">
               <FaInstagram />
-              <p className="ml-2 cursor-pointer">Instagram</p>
+              <Link
+                href={"https://www.instagram.com/myracha.ge/"}
+                target="_blank"
+              >
+                <p className="ml-2 cursor-pointer">Instagram</p>
+              </Link>
             </div>
             <div className="flex items-center pt-4">
               <FaTiktok />
-              <p className="ml-2 cursor-pointer">Tiktok</p>
+              <Link
+                href={"https://www.tiktok.com/@imogzaurerachashi"}
+                target="_blank"
+              >
+                <p className="ml-2 cursor-pointer">Tiktok</p>
+              </Link>
             </div>
           </div>
           <div className="flex-1">
-            <p className="border-b-2 border-green-500 py-2">კონტაქტი</p>
+            <p className="border-b-2 border-green-500 py-2">საკონტაქტო</p>
             <div className="flex items-center py-4">
               <BsFillSendFill />
-              <p className="ml-2 cursor-pointer">codewithDavit</p>
+              <Link
+                href={"https://maps.app.goo.gl/cXVz2DNeYRBNrz7a9"}
+                target="_blank"
+              >
+                <p className="ml-2 cursor-pointer">რაჭა</p>
+              </Link>
             </div>
             <div className="flex items-center">
               <BsTelephoneOutbound />
               <p className="ml-2 cursor-pointer">000-000-000</p>
             </div>
             <div className="flex items-center pt-4">
-              <BiMessageDetail />
-              <p className="ml-2 cursor-pointer">codewithDavit</p>
+              <MdEmail />
+              <Link href="mailto:info.myracha@gmail.com">
+                <p className="ml-2 cursor-pointer">info.myracha@gmail.com</p>
+              </Link>
             </div>
           </div>
         </div>

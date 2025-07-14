@@ -38,15 +38,15 @@ const RoomDetails = (props: { params: Promise<{ slug: string }> }) => {
               <h2 className="font-bold text-left text-lg md:text-2xl">
                 {room.name}
               </h2>
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-1 md:gap-2 p-1 my-11">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-2 p-1 my-11">
                 {room.offeredAmenities.map((amenity) => (
                   <div
                     key={amenity._key}
-                    className="bg-[#eff0f2] md:py-4 md:rounded-lg dark:bg-gray-800 p-1 rounded-sm text-xs text-center"
+                    className="bg-[#eff0f2] md:py-4 md:rounded-lg dark:bg-gray-800 p-2 rounded-sm text-xs text-center"
                   >
                     <Icon
                       name={amenity.icon ? amenity.icon : `${amenity.icon}`}
-                      className="md:text-2xl mx-auto"
+                      className="md:text-2xl text-3xl mx-auto"
                     />
                     <p className="text-xs md:text-base pt-3">
                       {amenity.amenity}

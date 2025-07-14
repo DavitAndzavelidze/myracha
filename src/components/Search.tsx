@@ -39,7 +39,7 @@ const Search: FC<Props> = ({
           <label className="block text-sm font-normal mb-2 ">
             სასტუმროს ტიპი
           </label>
-          <div className="relative inline-block w-full max-w-[300px] font-sans-select">
+          <div className="relative inline-block w-full font-sans-select">
             <select
               value={roomTypeFilter}
               onChange={handleRoomTypeChange}
